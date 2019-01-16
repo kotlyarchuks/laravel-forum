@@ -8,21 +8,33 @@ class ThreadsTest extends TestCase
 {
     use \Illuminate\Foundation\Testing\DatabaseMigrations;
 
+    public function setUp()
+    {
+        parent::setUp();
+
+        $this->thread = factory('App\Thread')->create();
+    }
+
     /** @test */
     public function user_can_see_all_threads()
     {
-        $thread = factory('App\Thread')->create();
-        $response = $this->get('/threads');
-
-        $response->assertSee($thread->title);
+        $this->get('/threads')
+            ->assertSee($this->thread->title);
     }
 
     /** @test */
     public function user_can_see_one_thread()
     {
-        $thread = factory('App\Thread')->create();
-        $response = $this->get('/threads/' . $thread->id);
+        $this->get('/threads/' . $this->thread->id)
+            ->assertSee($this->thread->title);
+    }
 
-        $response->assertSee($thread->title);
+    /** @test */
+    public function user_can_see_threads_replies()
+    {
+        $reply = factory('App\Reply')->create(['thread_id' => $this->thread->id]);
+
+        $this->get('/threads/' . $this->thread->id)
+            ->assertSee($reply->body);
     }
 }
