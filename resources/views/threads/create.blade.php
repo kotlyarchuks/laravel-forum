@@ -20,6 +20,19 @@
             </div>
           </div>
 
+          <div class="field">
+            <label class="label">Category</label>
+            <div class="control">
+              <div class="select">
+                <select name="category">
+                  @foreach ($categories as $category)
+                  <option value="{{$category->id}}">{{$category->name}}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+          </div>
+
           <div class="control">
             <button class="button is-primary">Create</button>
           </div>

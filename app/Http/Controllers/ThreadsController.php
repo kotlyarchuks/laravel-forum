@@ -31,7 +31,8 @@ class ThreadsController extends Controller
      */
     public function create()
     {
-        return view('threads.create');
+        $categories = \App\Category::all();
+        return view('threads.create', compact('categories'));
     }
 
     /**
@@ -48,6 +49,7 @@ class ThreadsController extends Controller
         ]);
 
         $validated['user_id'] = auth()->id();
+        $validated['category_id'] = request('category');
 
         $thread = Thread::create($validated);
 
@@ -60,7 +62,7 @@ class ThreadsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Thread $thread)
+    public function show($category, Thread $thread)
     {
         return view('threads.show', compact('thread'));
     }
