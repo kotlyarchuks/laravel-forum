@@ -1,9 +1,8 @@
-@extends('layouts.app')
-
+@extends('layouts.app') 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        @foreach ($threads as $thread) 
+        @if ($threads->count()) @foreach ($threads as $thread)
         <div class="col-md-8">
             <div class="card" style="margin-bottom: 1em;">
                 <div class="card-header">
@@ -17,7 +16,11 @@
                 </div>
             </div>
         </div>
-        @endforeach
+        @endforeach @else
+        <div class="div col-md-8">
+            <p>There are no threads :(</p>
+        </div>
+        @endif
     </div>
 </div>
 @endsection

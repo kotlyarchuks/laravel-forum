@@ -3,6 +3,8 @@
 <div class="container">
     <div class="columns">
         <div class="column is-half">
+            <div>{{$thread->user->name}}</div>
+            <div class="help"><i>{{$thread->created_at->diffForHumans()}}</i></div>
             <div class="card" style="margin-bottom: 1em;">
                 <div class="card-header">{{$thread->title}}</div>
 
@@ -15,9 +17,11 @@
     @foreach ($thread->replies as $reply)
     <div class="columns">
         <div class="column is-one-third">
-            <p class="box">
+            <div>{{$reply->user->name}}</div>
+            <div class="help"><i>{{$reply->created_at->diffForHumans()}}</i></div>
+            <div class="box">
                 {{$reply->body}}
-            </p>
+            </div>
         </div>
     </div>
     @endforeach

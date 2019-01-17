@@ -37,4 +37,22 @@ class ThreadsTest extends TestCase
         $this->get('/threads/' . $this->thread->id)
             ->assertSee($reply->body);
     }
+
+    /** @test */
+    public function user_can_see_reply_author()
+    {
+        $reply = factory('App\Reply')->create(['thread_id' => $this->thread->id]);
+
+        $this->get('/threads/' . $this->thread->id)
+            ->assertSee($reply->user->name);
+    }
+
+    /** @test */
+    public function user_can_see_reply_date()
+    {
+        $reply = factory('App\Reply')->create(['thread_id' => $this->thread->id]);
+
+        $this->get('/threads/' . $this->thread->id)
+            ->assertSee($reply->created_at->diffForHumans());
+    }
 }
