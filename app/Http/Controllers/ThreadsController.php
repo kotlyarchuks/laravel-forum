@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ThreadsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +31,7 @@ class ThreadsController extends Controller
      */
     public function create()
     {
-        //
+        return view('threads.create');
     }
 
     /**
@@ -35,9 +40,18 @@ class ThreadsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $validated = request()->validate([
+            'title' => 'required|min:2',
+            'body' => 'required|min:10',
+        ]);
+
+        $validated['user_id'] = auth()->id();
+
+        $thread = Thread::create($validated);
+
+        return redirect($thread->path());
     }
 
     /**
