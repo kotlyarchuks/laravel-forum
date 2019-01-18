@@ -51,7 +51,7 @@
                                   Categories
                                 </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                @foreach (App\Category::all() as $category)
+                                @foreach ($categories as $category)
                                 <a class="dropdown-item" href="/threads/{{$category->slug}}">{{$category->name}}</a>
                                 <!-- end dropdown -->
                                 @endforeach

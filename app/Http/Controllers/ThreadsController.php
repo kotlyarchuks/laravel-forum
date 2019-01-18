@@ -36,8 +36,7 @@ class ThreadsController extends Controller
      */
     public function create()
     {
-        $categories = \App\Category::all();
-        return view('threads.create', compact('categories'));
+        return view('threads.create');
     }
 
     /**
