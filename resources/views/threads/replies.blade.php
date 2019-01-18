@@ -5,5 +5,6 @@
     <div class="box">
       {{$reply->body}}
     </div>
+  @include('errors')
   </div>
 </div>
