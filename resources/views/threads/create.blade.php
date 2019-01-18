@@ -3,6 +3,7 @@
 <div class="container">
   <div class="columns is-centered">
     <div class="column is-half">
+  @include('errors')
       <h4 class="title">Create new thread</h4>
       <div>
         <form action="/threads" method="POST">
@@ -24,7 +25,7 @@
             <label class="label">Category</label>
             <div class="control">
               <div class="select">
-                <select name="category">
+                <select name="category_id">
                   @foreach ($categories as $category)
                   <option value="{{$category->id}}">{{$category->name}}</option>
                   @endforeach

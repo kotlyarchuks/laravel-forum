@@ -44,12 +44,12 @@ class ThreadsController extends Controller
     public function store()
     {
         $validated = request()->validate([
-            'title' => 'required|min:2',
-            'body' => 'required|min:10',
+            'title'       => 'required|min:2',
+            'body'        => 'required|min:10',
+            'category_id' => 'required|exists:categories,id',
         ]);
 
         $validated['user_id'] = auth()->id();
-        $validated['category_id'] = request('category');
 
         $thread = Thread::create($validated);
 
