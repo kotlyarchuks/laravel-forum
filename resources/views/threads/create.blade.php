@@ -11,13 +11,13 @@
           <div class="field">
             <label class="label" for="title">Title</label>
             <div class="control">
-              <input class="input" name="title" type="text" placeholder="">
+              <input class="input" name="title" type="text" placeholder="" value="{{old('title')}}" required>
             </div>
           </div>
           <div class="field">
             <label class="label" for="body">Message</label>
             <div class="control">
-              <textarea class="textarea" name="body" placeholder=""></textarea>
+              <textarea class="textarea" name="body" value="{{old('body')}}" required></textarea>
             </div>
           </div>
 
@@ -25,9 +25,10 @@
             <label class="label">Category</label>
             <div class="control">
               <div class="select">
-                <select name="category_id">
+                <select name="category_id" required>
+                  <option value="">Choose one</option>
                   @foreach ($categories as $category)
-                  <option value="{{$category->id}}">{{$category->name}}</option>
+                  <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{$category->name}}</option>
                   @endforeach
                 </select>
               </div>
