@@ -43,7 +43,9 @@
                                                           Browse
                                                         </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/threads?by={{strtolower(auth()->user()->name)}}">My threads</a>
+                                @if (auth()->check())
+                                    <a class="dropdown-item" href="/threads?by={{strtolower(auth()->user()->name)}}">My threads</a>
+                                @endif
                                 <a class="dropdown-item" href="/threads/">All Threads</a>
                             </div>
                         </li>
