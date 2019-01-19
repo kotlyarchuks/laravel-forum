@@ -18,7 +18,7 @@ class RepliesController extends Controller
         ]);
 
         return $thread->addReply([
-            'body' => $validated['body'],
+            'body'    => $validated['body'],
             'user_id' => auth()->id(),
         ]);
     }

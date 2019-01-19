@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Filters\ThreadFilters;
 use App\Thread;
 use Illuminate\Http\Request;
 
@@ -18,13 +19,15 @@ class ThreadsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Category $category)
+    public function index(Category $category, ThreadFilters $filters)
     {
+        $threads = Thread::latest()->filter($filters);
+
         if ($category->exists) {
-            $threads = $category->threads()->latest()->get();
-        } else {
-            $threads = Thread::latest()->get();
+            $threads = $threads->where('category_id', $category->id);
         }
+
+        $threads = $threads->get();
 
         return view('threads.index', compact('threads'));
     }
