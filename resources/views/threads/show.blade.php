@@ -11,10 +11,15 @@
                 </div>
             </div>
             <!-- Replies -->
-            @foreach ($thread->replies as $reply)
+            @foreach ($replies as $reply)
     @include('threads.replies')
             <!-- End foreach -->
             @endforeach
+            <div class="columns">
+                <div class="column is-one-quarter has-text-centered" style="margin: 2em 0">
+                    {{$replies->links()}}
+                </div>
+            </div>
 
             <!-- Form -->
             @if (auth()->check())
