@@ -8,6 +8,15 @@ class Thread extends Model
 {
     protected $fillable = ['title', 'body', 'user_id', 'category_id'];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('replies_count', function ($builder) {
+            $builder->withCount('replies');
+        });
+    }
+
     public function path()
     {
         return "/threads/{$this->category->name}/{$this->id}";
