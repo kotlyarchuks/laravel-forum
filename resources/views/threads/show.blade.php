@@ -46,7 +46,7 @@
         <!-- Sidebar -->
         <div class="column is-one-quarter">
             <div class="box">
-                <p>This thread was published by <a href="#">{{$thread->user->name}}</a> {{$thread->created_at->diffForHumans()}}</p>
+                <p>This thread was published by <a href="#">{{$thread->user->name}}</a> in {{$thread->category->name}} {{$thread->created_at->diffForHumans()}}</p>
                 <p>It has {{$thread->replies_count}} {{str_plural('comment', $thread->replies_count)}}</p>
             </div>
         </div>
