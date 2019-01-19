@@ -21,6 +21,9 @@
             <p>There are no threads :(</p>
         </div>
         @endif
+        <div style="margin-top: 2em;">
+            {{$threads->links()}}
+        </div>
     </div>
 </div>
 @endsection

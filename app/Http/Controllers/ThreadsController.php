@@ -27,7 +27,7 @@ class ThreadsController extends Controller
             $threads = $threads->where('category_id', $category->id);
         }
 
-        $threads = $threads->get();
+        $threads = $threads->paginate(5);
 
         return view('threads.index', compact('threads'));
     }
