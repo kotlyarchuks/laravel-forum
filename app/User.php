@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Thread::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 }

@@ -10,7 +10,7 @@
                     <div class="column is-11 thread__content">
                         <div class="thread__head">
                             <div class="thread__head__main">
-                                <h4 class="thread__title is-inline">{{$thread->user->name}}</h4> <span class="thread__info">- {{$thread->created_at->diffForHumans()}}</span>
+                                <h4 class="thread__title is-inline"><a href="/profiles/{{$thread->user->name}}">{{$thread->user->name}}</a></h4> <span class="thread__info">- {{$thread->created_at->diffForHumans()}}</span>
                             </div>
                             <div class="thread__head__meta">
                                 <span class="meta__icon"><i class="fas fa-comment"></i> {{$thread->replies_count}}</span>

@@ -23,7 +23,7 @@
                         <div class="thread__body">
                             {{$thread->body}}
                         </div>
-                        <div class="thread__info">Created <span class="thread__time">{{$thread->created_at->diffForHumans()}}</span> ago by <span class="thread__author">{{$thread->user->name}}</span></div>
+                        <div class="thread__info">Created <span class="thread__time">{{$thread->created_at->diffForHumans()}}</span> ago by <span class="thread__author"><a href="/profiles/{{$thread->user->name}}">{{$thread->user->name}}</a></span></div>
                     </div>
                     <div class="column is-1 thread__meta">
                         <div class="thread__comments">

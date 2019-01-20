@@ -3,7 +3,7 @@
   <div class="column is-11 thread__content">
       <div class="thread__head">
           <div class="thread__head__main">
-              <h4 class="thread__title is-inline">{{$reply->user->name}}</h4> <span class="thread__info">- {{$reply->created_at->diffForHumans()}}</span>
+              <h4 class="thread__title is-inline"><a href="/profiles/{{$reply->user->name}}">{{$reply->user->name}}</a></h4> <span class="thread__info">- {{$reply->created_at->diffForHumans()}}</span>
           </div>
       </div>
       <div class="thread__body">
