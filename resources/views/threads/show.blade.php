@@ -15,11 +15,13 @@
                             <div class="thread__head__meta">
                                 <span class="meta__icon"><i class="fas fa-comment"></i> {{$thread->replies_count}}</span>
                                 <span class="thread__tag">{{$thread->category->name}}</span>
-                                <form action="{{$thread->path()}}" method="POST" id="delete-thread-form" class="is-inline">
+                                @can('update', $thread)
+                                    <form action="{{$thread->path()}}" method="POST" id="delete-thread-form" class="is-inline">
                                     @csrf
                                     @method('DELETE')
                                     <span class="thread__delete"><i class="fas fa-trash-alt" onclick="document.getElementById('delete-thread-form').submit()"></i></span>
-                                </form>
+                                    </form>
+                                @endcan
                             </div>
                         </div>
                         <div class="thread__topic thread__title">

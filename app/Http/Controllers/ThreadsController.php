@@ -108,6 +108,7 @@ class ThreadsController extends Controller
      */
     public function destroy($category, Thread $thread)
     {
+        $this->authorize('update', $thread);
         $thread->delete();
 
         return redirect('/threads');
