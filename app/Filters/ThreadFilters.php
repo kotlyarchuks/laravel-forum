@@ -7,7 +7,7 @@ use App\User;
 
 class ThreadFilters extends Filters
 {
-    protected $filters = ['by', 'popularity'];
+    protected $filters = ['by', 'popular'];
 
     public function by($username)
     {
@@ -16,11 +16,9 @@ class ThreadFilters extends Filters
         return $this->query->where('user_id', $user->id);
     }
 
-    public function popularity($value)
+    public function popular($value)
     {
-        if (!$value == 1) {
-            return $this->query;
-        }
+        $this->query->getQuery()->orders = [];
 
         return $this->query->orderBy('replies_count', 'desc');
     }
