@@ -19,81 +19,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-        html,body {
-        font-family: 'Open Sans', serif;
-        background: #F2F6FA;
-        }
-        p {
-            margin-bottom: 0;
-        }
-        .bottom-actions {
-            margin-top: .5em;
-        }
-        .bottom-actions span {
-            margin-right: .5em;
-        }
-        .box {
-            color: #777;
-        }
-        footer {
-        background-color: #F2F6FA !important;
-        }
-        .topNav {
-        border-top: 5px solid #3498DB;
-        }
-        .topNav .container {
-        border-bottom: 1px solid #E6EAEE;
-        }
-        .navbar-menu .navbar-item {
-        padding: 0 2rem;
-        }
-        aside.menu {
-        padding-top: 3rem;
-        }
-        aside.menu .menu-list {
-        line-height: 1.5;
-        }
-        aside.menu .menu-label {
-        padding-left: 10px;
-        font-weight: 700;
-        }
-        .button.is-primary.is-alt {
-        background: #00c6ff;
-        background: -webkit-linear-gradient(to bottom, #0072ff, #00c6ff);
-        background: linear-gradient(to bottom, #0072ff, #00c6ff);
-        font-weight: 700;
-        font-size: 14px;
-        height: 3rem;
-        line-height: 2.8;
-        }
-        .media-content p {
-        font-size: 14px;
-        line-height: 2.3;
-        font-weight: 500;
-        color: #777;
-        }
-        article.post {
-        padding-bottom: 1rem;
-        border-bottom: 1px solid #E6EAEE;
-        }
-        article.post:last-child {
-        padding-bottom: 0;
-        border-bottom: none;
-        }
-        .post__link {
-            text-decoration: none;
-        }
-        .post__link:hover{
-            text-decoration: none;
-        }
-        .menu-list li{
-        padding: 5px;
-        }
-    </style>
 </head>
 
 <body style="padding-bottom: 100px; min-height: 100vh;">
