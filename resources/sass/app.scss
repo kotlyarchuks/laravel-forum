@@ -242,6 +242,7 @@ ul {
 }
 
 .reply__form {
+  margin-top: 16px;
   padding-left: 24px;
   width: 40%;
 
@@ -259,4 +260,16 @@ ul {
       background: $accent-hover; 
     }
   }
+}
+
+.thread__like {
+  
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.liked {
+  color: $accent !important;
 }

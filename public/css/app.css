@@ -10705,6 +10705,7 @@ ul {
 }
 
 .reply__form {
+  margin-top: 16px;
   padding-left: 24px;
   width: 40%;
 }
@@ -10722,5 +10723,13 @@ ul {
 
 .reply__form .reply__button:hover {
   background: #2779bd;
+}
+
+.thread__like:hover {
+  cursor: pointer;
+}
+
+.liked {
+  color: #328af1 !important;
 }
 

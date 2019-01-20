@@ -25,3 +25,6 @@ Route::post('/threads', 'ThreadsController@store');
 Route::get('/threads/{category}/{thread}', 'ThreadsController@show');
 
 Route::post('/threads/{category}/{thread}/replies', 'RepliesController@store');
+
+Route::post('/replies/{reply}/favorites', 'FavoritesController@store');
+Route::delete('/replies/{reply}/favorites', 'FavoritesController@destroy');
