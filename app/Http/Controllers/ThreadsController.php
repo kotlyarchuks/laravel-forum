@@ -51,8 +51,8 @@ class ThreadsController extends Controller
     public function store()
     {
         $validated = request()->validate([
-            'title'       => 'required|min:2',
-            'body'        => 'required|min:10',
+            'title' => 'required|min:2',
+            'body' => 'required|min:10',
             'category_id' => 'required|exists:categories,id',
         ]);
 
@@ -72,7 +72,7 @@ class ThreadsController extends Controller
     public function show($category, Thread $thread)
     {
         return view('threads.show', [
-            'thread'  => $thread,
+            'thread' => $thread,
             'replies' => $thread->replies()->paginate(10),
         ]);
     }

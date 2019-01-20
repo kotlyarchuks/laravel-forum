@@ -8,6 +8,8 @@ class Thread extends Model
 {
     protected $fillable = ['title', 'body', 'user_id', 'category_id'];
 
+    protected $with = ['user', 'category'];
+
     protected static function boot()
     {
         parent::boot();
@@ -24,7 +26,9 @@ class Thread extends Model
 
     public function replies()
     {
-        return $this->hasMany('App\Reply');
+        return $this->hasMany('App\Reply')
+            ->withCount('favorites')
+            ->with('user');
     }
 
     public function user()
