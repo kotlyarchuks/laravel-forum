@@ -206,13 +206,10 @@ ul {
     font-size: 12px;
     font-weight: 500;
 
-    .meta__icon {
-      margin-right: 10px;
-    }
-
     .thread__tag {
       display: inline-block;
       padding: 5px 14px;
+      margin: 0 10px;
       color: $accent;
       font-size: 10px;
       text-transform: uppercase;
@@ -223,6 +220,13 @@ ul {
       &:hover {
         background: $accent;
         color: #fff;
+        cursor: pointer;
+      }
+    }
+
+    .thread__delete {
+      &:hover {
+        color: $accent;
         cursor: pointer;
       }
     }

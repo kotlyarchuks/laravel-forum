@@ -106,8 +106,10 @@ class ThreadsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Thread $thread)
+    public function destroy($category, Thread $thread)
     {
-        //
+        $thread->delete();
+
+        return redirect('/threads');
     }
 }
