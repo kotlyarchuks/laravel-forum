@@ -9,6 +9,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    // protected $with = ['activities'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -30,6 +32,11 @@ class User extends Authenticatable
     public function threads()
     {
         return $this->hasMany(Thread::class);
+    }
+
+    public function activities()
+    {
+        return $this->hasMany(Activity::class);
     }
 
     public function getRouteKeyName()

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRepliesTable extends Migration
+class CreateActivitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateRepliesTable extends Migration
      */
     public function up()
     {
-        Schema::create('replies', function (Blueprint $table) {
+        Schema::create('activities', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('event_type');
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('thread_id');
-            $table->text('body');
+            $table->unsignedInteger('subject_id');
+            $table->string('subject_type');
             $table->timestamps();
-
-            $table->foreign('thread_id')->references('id')->on('threads')->onDelete('cascade');
         });
     }
 
@@ -31,6 +30,6 @@ class CreateRepliesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('replies');
+        Schema::dropIfExists('activities');
     }
 }
