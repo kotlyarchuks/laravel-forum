@@ -2,10 +2,9 @@
 
 namespace App;
 
-use App\Interfaces\FeedPrintable;
 use Illuminate\Database\Eloquent\Model;
 
-class Thread extends Model implements FeedPrintable
+class Thread extends Model
 {
     use RecordsActivity;
 
@@ -54,10 +53,5 @@ class Thread extends Model implements FeedPrintable
     public function scopeFilter($query, $filters)
     {
         return $filters->apply($query);
-    }
-
-    // Interface FeedPrintable
-    function print() {
-        echo "<a href='{$this->path()}'>{$this->title}</a>";
     }
 }

@@ -10,6 +10,6 @@ class Activity extends Model
 
     public function subject()
     {
-        return $this->belongsTo($this->subject_type);
+        return $this->morphTo();
     }
 }

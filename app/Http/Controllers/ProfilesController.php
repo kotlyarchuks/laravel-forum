@@ -8,12 +8,16 @@ class ProfilesController extends Controller
 {
     public function show(User $user)
     {
-        // dd($user->activities->toArray());
-
         return view('profiles.show', [
             'profileUser' => $user,
-            // 'threads'     => $user->threads,
-            'activities'  => $user->activities,
+            'activities' => $this->getActivity($user),
         ]);
+    }
+
+    protected function getActivity($user)
+    {
+        return $user->activities()->latest()->with('subject')->get()->groupBy(function ($item) {
+            return $item->created_at->format('d-m-Y');
+        });
     }
 }
