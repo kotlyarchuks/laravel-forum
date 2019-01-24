@@ -10,8 +10,12 @@ trait RecordsActivity
             return;
         }
 
-        static::created(function ($thread) {
-            $thread->addActivity('created');
+        static::created(function ($model) {
+            $model->addActivity('created');
+        });
+
+        static::deleting(function ($model) {
+            $model->activities()->delete();
         });
 
     }
@@ -25,7 +29,7 @@ trait RecordsActivity
     {
         return $this->activities()->create([
             'event_type' => $this->getActivityType($eventType),
-            'user_id' => auth()->id(),
+            'user_id'    => auth()->id(),
         ]);
     }
 
