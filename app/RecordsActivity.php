@@ -29,7 +29,7 @@ trait RecordsActivity
     {
         return $this->activities()->create([
             'event_type' => $this->getActivityType($eventType),
-            'user_id'    => auth()->id(),
+            'user_id' => auth()->id(),
         ]);
     }
 

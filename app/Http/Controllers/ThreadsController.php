@@ -112,6 +112,6 @@ class ThreadsController extends Controller
         $this->authorize('update', $thread);
         $thread->delete();
 
-        return redirect('/threads');
+        return redirect('/threads')->with('flash', 'Thread deleted');
     }
 }

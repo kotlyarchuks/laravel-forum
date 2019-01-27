@@ -47,6 +47,11 @@ class Thread extends Model
         return $this->belongsTo('App\Category');
     }
 
+    public function favorited()
+    {
+        return $this->morphMany('App\Favorite', 'favorited');
+    }
+
     public function addReply($reply)
     {
         $this->replies()->create($reply);

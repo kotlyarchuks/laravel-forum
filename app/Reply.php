@@ -22,4 +22,9 @@ class Reply extends Model
     {
         return $this->belongsTo('App\Thread');
     }
+
+    public function favorited()
+    {
+        return $this->morphMany('App\Favorite', 'favorited');
+    }
 }

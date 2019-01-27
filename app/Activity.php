@@ -15,7 +15,7 @@ class Activity extends Model
 
     public static function feed($user)
     {
-        return $user->activities()->latest()->with('subject')->get()->groupBy(function ($item) {
+        return $user->activities()->latest()->with('subject.favorited')->get()->groupBy(function ($item) {
             return $item->created_at->format('d-m-Y');
         });
 
