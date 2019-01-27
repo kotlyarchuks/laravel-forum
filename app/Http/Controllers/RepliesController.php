@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Reply;
 use App\Thread;
 
 class RepliesController extends Controller
@@ -18,8 +19,15 @@ class RepliesController extends Controller
         ]);
 
         return $thread->addReply([
-            'body'    => $validated['body'],
+            'body' => $validated['body'],
             'user_id' => auth()->id(),
         ]);
+    }
+
+    public function destroy(Reply $reply)
+    {
+        $reply->delete();
+
+        return back()->with('flash', 'Reply deleted');
     }
 }

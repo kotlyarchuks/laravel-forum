@@ -5,6 +5,15 @@
           <div class="thread__head__main">
               <h4 class="thread__title is-inline"><a href="/profiles/{{$reply->user->name}}">{{$reply->user->name}}</a></h4> <span class="thread__info">- {{$reply->created_at->diffForHumans()}}</span>
           </div>
+          <div class="thread__head__meta">
+             @can('update', $reply)
+                    <form action="/replies/{{$reply->id}}" method="POST" id="delete-reply-form" class="is-inline">
+                    @csrf
+                    @method('DELETE')
+                    <span class="thread__delete"><i class="fas fa-trash-alt" onclick="document.getElementById('delete-reply-form').submit()"></i></span>
+                    </form>
+            @endcan
+          </div>
       </div>
       <div class="thread__body">
           <p>
