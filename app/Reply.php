@@ -13,6 +13,15 @@ class Reply extends Model
 
     protected $with = ['user', 'favorites', 'thread'];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($reply) {
+            $reply->favorited->each->delete();
+        });
+    }
+
     public function user()
     {
         return $this->belongsTo('App\User');
