@@ -89,6 +89,6 @@ class FavoritesController extends Controller
     {
         $reply->unfavorite();
 
-        return back();
+        // return back();
     }
 }

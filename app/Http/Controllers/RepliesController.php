@@ -19,7 +19,7 @@ class RepliesController extends Controller
         ]);
 
         return $thread->addReply([
-            'body'    => $validated['body'],
+            'body' => $validated['body'],
             'user_id' => auth()->id(),
         ]);
     }
@@ -40,7 +40,5 @@ class RepliesController extends Controller
         $this->authorize('update', $reply);
 
         $reply->delete();
-
-        // return back()->with('flash', 'Reply deleted');
     }
 }
