@@ -29,12 +29,7 @@
                 </p>
             </div>
             <div class="thread__info thread__like">
-                <form action="/replies/{{$reply->id}}/favorites" method="POST" id="reply__form">
-                    @if ($reply->isFavoritedByCurrentUser()) @method('DELETE') @endif @csrf
-                    <a onclick="this.parentElement.submit()" class="{{$reply->isFavoritedByCurrentUser() ? 'liked' : ''}}">
-                    {{$reply->favorites->count()}} <i class="fas fa-heart"></i>
-                </a>
-                </form>
+                <favorite :reply="{{ $reply }}"></favorite>
             </div>
         </div>
     </div>

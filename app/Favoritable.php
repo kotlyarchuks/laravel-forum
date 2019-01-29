@@ -27,4 +27,14 @@ trait Favoritable
     {
         return auth()->check() && $this->favorites->where('user_id', auth()->user()->id)->count();
     }
+
+    public function getFavoritesCountAttribute()
+    {
+        return $this->favorites->count();
+    }
+
+    public function getIsFavoritedAttribute()
+    {
+        return $this->isFavoritedByCurrentUser();
+    }
 }
