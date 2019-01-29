@@ -148,6 +148,31 @@ ul {
   .thread__body {
     color: $faded-text;
     margin-bottom: 16px;
+
+    .thread__edit__input {
+      margin-bottom: 1em;
+      
+      input {
+        color: inherit;
+        font-size: 15px;
+      }
+    }
+
+    .thread__edit__buttons {
+      color: $help-text;
+      font-size: 16px;
+      font-weight: 500;
+
+
+      .thread__edit__ok {
+        margin-right: 1em;
+      }
+
+      & i:hover {
+        color: $accent;
+        cursor: pointer;
+      }
+    }
   }
 
   .thread__info {
@@ -224,7 +249,11 @@ ul {
       }
     }
 
-    .thread__delete {
+    .thread__edit {
+      margin-right: 1em;
+    }
+
+    .thread__delete, .thread__edit {
       &:hover {
         color: $accent;
         cursor: pointer;
@@ -283,4 +312,8 @@ ul {
   .profile__link {
     color: $accent !important;
   }
+}
+
+[v-cloak] {
+  display: none;
 }

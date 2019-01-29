@@ -10617,6 +10617,30 @@ ul {
   margin-bottom: 16px;
 }
 
+.threads__list__item .thread__body .thread__edit__input {
+  margin-bottom: 1em;
+}
+
+.threads__list__item .thread__body .thread__edit__input input {
+  color: inherit;
+  font-size: 15px;
+}
+
+.threads__list__item .thread__body .thread__edit__buttons {
+  color: #8795a1;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.threads__list__item .thread__body .thread__edit__buttons .thread__edit__ok {
+  margin-right: 1em;
+}
+
+.threads__list__item .thread__body .thread__edit__buttons i:hover {
+  color: #328af1;
+  cursor: pointer;
+}
+
 .threads__list__item .thread__info {
   color: #8795a1;
   font-size: 12px;
@@ -10690,7 +10714,12 @@ ul {
   cursor: pointer;
 }
 
-.thread__head .thread__head__meta .thread__delete:hover {
+.thread__head .thread__head__meta .thread__edit {
+  margin-right: 1em;
+}
+
+.thread__head .thread__head__meta .thread__delete:hover,
+.thread__head .thread__head__meta .thread__edit:hover {
   color: #328af1;
   cursor: pointer;
 }
@@ -10737,5 +10766,9 @@ ul {
 
 .profile__activities .profile__link {
   color: #328af1 !important;
+}
+
+[v-cloak] {
+  display: none;
 }
 

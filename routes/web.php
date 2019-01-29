@@ -27,6 +27,7 @@ Route::delete('/threads/{category}/{thread}', 'ThreadsController@destroy');
 
 Route::post('/threads/{category}/{thread}/replies', 'RepliesController@store');
 Route::delete('/replies/{reply}', 'RepliesController@destroy');
+Route::patch('/replies/{reply}', 'RepliesController@update');
 
 Route::post('/replies/{reply}/favorites', 'FavoritesController@store');
 Route::delete('/replies/{reply}/favorites', 'FavoritesController@destroy');

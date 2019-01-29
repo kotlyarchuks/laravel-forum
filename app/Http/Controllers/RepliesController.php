@@ -19,9 +19,20 @@ class RepliesController extends Controller
         ]);
 
         return $thread->addReply([
-            'body' => $validated['body'],
+            'body'    => $validated['body'],
             'user_id' => auth()->id(),
         ]);
+    }
+
+    public function update(Reply $reply)
+    {
+        $this->authorize('update', $reply);
+
+        $validated = request()->validate([
+            'body' => 'required|min:2',
+        ]);
+
+        $reply->update($validated);
     }
 
     public function destroy(Reply $reply)
