@@ -41,6 +41,6 @@ class RepliesController extends Controller
 
         $reply->delete();
 
-        return back()->with('flash', 'Reply deleted');
+        // return back()->with('flash', 'Reply deleted');
     }
 }

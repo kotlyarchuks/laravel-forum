@@ -22,6 +22,7 @@ window.Vue = require('vue');
 
 Vue.component('flash', require('./components/FlashComponent.vue').default);
 Vue.component('reply', require('./components/ReplyComponent.vue').default);
+Vue.component('delete', require('./components/DeleteComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

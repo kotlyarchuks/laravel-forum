@@ -11,11 +11,7 @@
                 <div class="thread__head__meta">
                     @can('update', $reply)
                     <span class="thread__edit" @click="editing=true"><i class="fas fa-pencil-alt"></i></span>
-                    <form action="/replies/{{$reply->id}}" method="POST" id="delete-reply-form" class="is-inline">
-                        @csrf @method('DELETE')
-                        <span class="thread__delete"><i class="fas fa-trash-alt" onclick="document.getElementById('delete-reply-form').submit()"></i></span>
-                    </form>
-                    @endcan
+                    <span class="thread__delete" @click="destroy"><i class="fas fa-trash-alt"></i></span> @endcan
                 </div>
             </div>
             <div class="thread__body">
