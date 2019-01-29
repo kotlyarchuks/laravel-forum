@@ -28,9 +28,11 @@
                     {{$reply->body}}
                 </p>
             </div>
+            @if (auth()->check())
             <div class="thread__info thread__like">
                 <favorite :reply="{{ $reply }}"></favorite>
             </div>
+            @endif
         </div>
     </div>
 </reply>
