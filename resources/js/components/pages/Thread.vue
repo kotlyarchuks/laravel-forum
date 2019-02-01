@@ -1,11 +1,12 @@
 
 <script>
 import Replies from "../Replies.vue";
+import Newreply from "../NewReply.vue";
 
 export default {
   props: ["initialRepliesCount"],
 
-  components: { Replies },
+  components: { Replies, Newreply },
 
   data() {
     return {
@@ -13,9 +14,7 @@ export default {
     };
   },
 
-  methods: {
-    //
-  }
+  methods: {}
 };
 </script>
 
