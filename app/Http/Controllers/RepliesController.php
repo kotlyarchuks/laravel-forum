@@ -14,14 +14,21 @@ class RepliesController extends Controller
 
     public function store($category, Thread $thread)
     {
+        // dd(request());
         $validated = request()->validate([
             'body' => 'required|min:2',
         ]);
 
-        return $thread->addReply([
+        $reply = $thread->addReply([
             'body' => $validated['body'],
             'user_id' => auth()->id(),
         ]);
+
+        if(request()->expectsJson()){
+            return $reply->load('user');
+        }
+
+        return back()->with('flash', 'Reply has been added!');
     }
 
     public function update(Reply $reply)

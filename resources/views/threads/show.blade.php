@@ -35,13 +35,7 @@
                     </div>
 
                     {{-- Comments --}}
-                    <replies :data="{{$thread->replies}}" @removed="repliesCount--"></replies>
-
-                    @if (auth()->check())
-                    <newreply data="{{$thread}}" @submitMessage=""></newreply>
-                    @else
-                    <div><a href="{{route('login')}}">Log in</a> to discuss this stuff!</div>
-                    @endif {{-- End form --}}
+                    <replies :data="{{$thread->replies}}" @removed="repliesCount--" @added="repliesCount++"></replies>
                 </div>
             </thread-view>
         </div>

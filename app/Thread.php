@@ -53,10 +53,7 @@ class Thread extends Model
 
     public function addReply($reply)
     {
-        $this->replies()->create($reply);
-
-        return back()
-            ->with('flash', 'Reply created!');
+        return $this->replies()->create($reply);
     }
 
     public function scopeFilter($query, $filters)

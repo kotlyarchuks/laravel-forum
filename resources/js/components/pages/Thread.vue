@@ -1,12 +1,11 @@
 
 <script>
 import Replies from "../Replies.vue";
-import Newreply from "../NewReply.vue";
 
 export default {
   props: ["initialRepliesCount"],
 
-  components: { Replies, Newreply },
+  components: { Replies },
 
   data() {
     return {

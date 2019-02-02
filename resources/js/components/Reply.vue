@@ -9,7 +9,7 @@
           <h4 class="thread__title is-inline">
             <a :href="'/profiles/'+user">{{user}}</a>
           </h4>
-          <span class="thread__info">- {{this.reply.created_at}}</span>
+          <span class="thread__info">- <span v-text="ago"></span></span>
         </div>
         <div v-if="canUpdate" class="thread__head__meta">
           <!-- Edit and delete buttons for authorized only -->
@@ -48,6 +48,7 @@
 
 <script>
 import Favorite from "./Favorite.vue";
+import moment from 'moment'
 
 export default {
   props: ["reply"],
@@ -86,6 +87,10 @@ export default {
 
     canUpdate() {
       return this.authorize(user => this.reply.user_id == user.id);
+    },
+
+    ago(){
+      return moment(this.reply.created_at).fromNow()
     }
   }
 };
