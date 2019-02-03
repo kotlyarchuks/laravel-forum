@@ -5,7 +5,8 @@
         <reply :reply="reply" @deleted="removeReply(index)"></reply>
       </div>
     </div>
-    <newreply :endpoint="endpoint" @created="addReply"></newreply>
+    <paginator :dataSet="dataSet" @changedPage="fetch"></paginator>
+    <newreply @created="addReply"></newreply>
   </div>
 </template>
 
@@ -21,8 +22,12 @@ export default {
   data() {
     return {
       replies: this.data,
-      endpoint: location.pathname + '/replies',
+      dataSet: null,
     };
+  },
+
+  created(){
+    this.fetch()
   },
 
   methods: {
@@ -36,6 +41,23 @@ export default {
       this.replies.push(response)
       
       this.$emit('added')
+    },
+
+    fetch(page){
+        axios.get(this.url(page))
+            .then(({data}) => {
+                this.dataSet = data
+                this.replies = data.data
+            })
+    },
+
+    url(page){
+      if (!page){
+        let query = location.search.match(/page=(\d+)/);
+        page = query ? query[1] : 1;
+      }
+
+      return `${location.pathname}/replies?page=${page}`
     }
   },
 };

@@ -9,12 +9,15 @@ class RepliesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('index');
+    }
+
+    public function index($category, Thread $thread){
+        return $thread->replies()->paginate(15);
     }
 
     public function store($category, Thread $thread)
     {
-        // dd(request());
         $validated = request()->validate([
             'body' => 'required|min:2',
         ]);

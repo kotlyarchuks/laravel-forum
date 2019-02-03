@@ -15,12 +15,13 @@
 </template>
 <script>
 export default {
-  props: ["endpoint"],
+  props: [],
 
   data() {
     return {
       body: "",
-      canCreateReply: window.App.signedIn
+      canCreateReply: window.App.signedIn,
+      endpoint: location.pathname + '/replies',
     };
   },
 
