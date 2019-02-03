@@ -1925,9 +1925,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       page: null,
       hasPrev: null,
-      hasNext: null,
-      url: location.pathname + '/replies',
-      items: null
+      hasNext: null
     };
   },
   methods: {},
@@ -2007,6 +2005,7 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         _this.dataSet = data;
         _this.replies = data.data;
+        window.scrollTo(0, 0);
       });
     },
     url: function url(page) {

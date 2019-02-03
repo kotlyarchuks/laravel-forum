@@ -48,6 +48,8 @@ export default {
             .then(({data}) => {
                 this.dataSet = data
                 this.replies = data.data
+
+                window.scrollTo(0,0)
             })
     },
 

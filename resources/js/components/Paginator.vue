@@ -19,9 +19,7 @@ export default {
     return {
         page: null,
         hasPrev: null,
-        hasNext: null,
-        url: location.pathname + '/replies',
-        items: null
+        hasNext: null
     };
   },
 

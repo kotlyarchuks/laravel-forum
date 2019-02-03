@@ -15,5 +15,9 @@
             <span class="section__icon"><i class="fas fa-star"></i></span>
             <div class="section__name"><a href="/threads?popular=1">Popular Threads</a></div>
         </div>
+        <div class="forum__sections__item flex">
+            <span class="section__icon"><i class="fas fa-exclamation-circle"></i></span>
+            <div class="section__name"><a href="/threads?unanswered=1">Unanswered Threads</a></div>
+        </div>
     </div>
 </div>
